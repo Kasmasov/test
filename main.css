@@ -1,0 +1,330 @@
+:root {
+    /* здесь указать переменные */
+    --color-for-test: red;
+    --height-menu: 47px;
+    --color-menu: rgb(51, 51, 51);
+    --color-menuButton-and-menu: rgb(214, 214, 214);
+}
+
+.pageBody {
+    overflow: scroll;
+}
+
+ /* Настройка скрола меню */
+ .stop__scroll {
+    overflow: hidden;
+}
+
+/* Меню основное (начало) */
+.menuContainer {
+    display: flex;
+    justify-content: center;
+    height: var(--height-menu);
+    background-color: var(--color-menu);
+}
+
+/* Кнопка в основном меню (начало) */
+.menuButton {
+    display: none;
+    position: relative;
+    position: absolute;
+    left: 20px;
+    height: 15px;
+    width: 15px;
+    margin: 16px 0 0 0;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+/* Кнопка основного меню до нажатия (начало) */
+.menuButton::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-menuButton-and-menu);
+    top: 5px;
+    transition: transform 0.5s ease-in-out, top 0.5s ease-in-out, bottom 0.5s ease-in-out;
+}
+
+.menuButton::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 75%;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-menuButton-and-menu);
+    transition: transform 0.5s ease-in-out, top 0.5s ease-in-out, bottom 0.5s ease-in-out;
+}
+
+/* Кнопка основного меню до нажатия (конец) */
+
+/* Кнопка основного меню после нажатия (начало) */
+.menuButton__active::before {
+    bottom: auto;
+    top: 50%;
+    transform: rotate(45deg);
+}
+
+.menuButton__active::after {
+    bottom: auto;
+    top: 50%;
+    transform: rotate(-45deg);
+}
+
+/* Кнопка основного меню после нажатия (конец) */
+/* Кнопка в основном меню (конец) */
+
+/* Картинка логотипа в основном меню (начало) */
+.menuLogo {
+    height: 22px;
+    width: 22px;
+    margin: 12px 0 0 0;
+}
+
+/* Картинка логотипа в основном меню (конец) */
+
+/* Список в основном меню (начало) */
+.menuNavList {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.menuNavList a {
+    color: var(--color-menuButton-and-menu);
+    font: 16px 'Roboto';
+    font-weight: 300;
+}
+
+.menuNavItem:not(:last-child) {
+    margin-right: 30px;
+}
+
+/* Список в основном меню (конец) */
+
+/* Меню основное (конец) */
+/* начало блока с одной фото */
+.blockWithOnePhotoImg,
+.blockWithTwoPhotosImg {
+    width: 100%;
+}
+
+.blockWithOnePhoto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 10px solid rgb(240, 240, 240);
+}
+
+.headLine {
+    font: normal 50px 'Roboto';
+    margin: 25px 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.subhead {
+    font: 25px 'Roboto';
+    font-weight: 100;
+    margin: 0 0 0 0;
+    padding: 0 0 5px 0;
+}
+
+.blockWithOnePhotoLinks {
+    padding: 0 0 20px 0;
+}
+
+.blockWithOnePhotoLinks a {
+    font: 15px 'Roboto';
+    font-weight: 100;
+    padding: 0 0 0 10px;
+}
+
+@media screen and (max-width: 1429px) {
+    .headLine {
+        font: normal 35px 'Roboto';
+
+    }
+
+    .subhead {
+        font: 12px 'Roboto';
+        font-weight: 100;
+    }
+}
+
+/* конец блока с одной фото */
+
+/* начало блока с двумя фото */
+
+.blockWithTwoPhotos {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+.blockWithTwoPhotosParts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    border: 10px solid rgb(240, 240, 240);
+}
+
+.headLineTwoPhotos {
+    font: normal 35px 'Roboto';
+    margin: 25px 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.subheadTwoPhotos {
+    font: 12px 'Roboto';
+    font-weight: 100;
+    margin: 0 0 5px 0;
+    padding: 0 0 0 0;
+}
+
+.blockWithTwoPhotosLinks {
+    padding: 0 0 20px 0;
+}
+
+.blockWithTwoPhotosLinks a {
+    font: 15px 'Roboto';
+    font-weight: 100;
+    padding: 0 0 0 10px;
+}
+
+/* конец блока с двумя фото */
+
+@media (max-width: 940px) {
+    /* контейнер,для меню, что бы список не находил на логотип */
+    .menuDropDownLine {
+        position: fixed;
+        display: block;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: 0;
+        height: 47px;
+        width: 100%;
+        z-index: 50;
+        background-color: var(--color-menu);
+        border-bottom: 1px solid var(--color-menuButton-and-menu);
+    }
+
+    /* черный фон, его раскрывание (начало) */
+    .menuScroll {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--color-menu);
+        transform: translateY(-100%);
+        transition: transform .8s cubic-bezier(0.8, 0.3, 0.5, 1);
+
+    }
+
+    .menuScrollActive {
+        top: -100%;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        transform: translateY(100%);
+        transition: transform .8ss cubic-bezier(0.52, 0.16, 0.24, 1);
+        overflow: hidden;
+    }
+
+    /* черный фон, его раскрывание (конец) */
+
+    .menuButton {
+        display: block;
+        z-index: 100;
+    }
+
+    .menuLogo {
+        margin: 15px 0 0 0;
+        z-index: 100;
+    }
+
+    /* меню (начало) */
+    /* раскрывание меню (начало) */
+    .menuNav {
+        position: fixed;
+        top: -100%;
+        width: 60%;
+        overflow-y: auto;
+        width: 300px;
+        height: 100vh;
+        overflow-x: auto;
+        transform: translateY(-100%);
+        transition: transform 0.5s cubic-bezier(0.32, 0.08, 0.24, 1);
+        transition-delay: 0.36s;
+        z-index: 100;
+    }
+
+    .menuNav__visible {
+        position: fixed;
+        top: -100%;
+        width: 60%;
+        overflow-y: auto;
+        width: 300px;
+        height: 100vh;
+        transform: translateY(105%);
+        transition: transform 0.36s cubic-bezier(0.32, 0.08, 0.24, 1);
+        transition-delay: 0.5s;
+        z-index: 100;
+
+    }
+
+    /* раскрывание меню (конец) */
+    /* настройка плавного исчезновения списка (начало) */
+    .menuNavList {
+        transition: opacity 0.9s, visibility 0.4s linear 1s;
+        opacity: 0;
+        visibility: hidden;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 44px 0 0 0;
+    }
+
+    .menuNavListVisibility {
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0.15s;
+    }
+
+    /* настройка плавного исчезновения списка (конец) */
+
+    .menuNavItem {
+        width: 100%;
+    }
+
+    .menuNavItem:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    .menuNavLink {
+        width: 100%;
+        display: inline-block;
+        font-size: 20px;
+        border-bottom: solid 1px var(--color-menuButton-and-menu);
+    }
+
+    .menuNavList a {
+        font: 20px 'Roboto';
+        font-weight: 300;
+    }
+
+    /* меню (начало) */
+
+
+
+
+
+}
