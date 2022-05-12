@@ -238,7 +238,6 @@
         transform: translateY(100%);
         transition: transform .8ss cubic-bezier(0.52, 0.16, 0.24, 1);
         overflow: hidden;
-        touch-action: none;
     }
 
     /* черный фон, его раскрывание (конец) */
